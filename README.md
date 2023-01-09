@@ -7,7 +7,7 @@ This is the [CSE-20289-SP23] reading and homework assignments repository for:
 
 ## Readings
 
-Each **reading** is due at **noon** on **Monday** and is worth **4** points (you may drop **two**).
+Each **reading** is due at **noon** on **Monday** and is worth **4** points (you may drop **three**).
 
 - [Reading 01](https://www3.nd.edu/~pbui/teaching/cse.20289.sp23/reading01.html)
 
