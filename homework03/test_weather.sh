@@ -28,20 +28,22 @@ import requests
 
 url      = "https://forecast.weather.gov/zipcity.php?inputstring=$1"
 response = requests.get(url)
+forecast = None
 
 for line in response.text.splitlines():
     line = line.strip()
-    if 'forecast' in "$2" and '"myforecast-current"' in line:
-        forecast = line.split('>')[1].split('<')[0].strip()
-        print(f'Forecast:    {forecast}')
-
     if 'celsius' in "$2" and 'myforecast-current-sm' in line:
         temperature = line.split('>')[1].split('&')[0]
-        print(f'Temperature: {temperature} degrees')
     
     if not 'celsius' in "$2" and 'myforecast-current-lrg' in line:
         temperature = line.split('>')[1].split('&')[0]
-        print(f'Temperature: {temperature} degrees')
+    
+    if 'forecast' in "$2" and '"myforecast-current"' in line:
+        forecast = line.split('>')[1].split('<')[0].strip()
+
+print(f'Temperature: {temperature} degrees')
+if forecast:
+    print(f'Forecast:    {forecast}')
 EOF
 }
 
