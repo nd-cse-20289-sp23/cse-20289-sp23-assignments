@@ -26,9 +26,10 @@ weather() {
     python3 <<EOF
 import requests
 
-url      = "https://forecast.weather.gov/zipcity.php?inputstring=$1"
-response = requests.get(url)
-forecast = None
+url         = "https://forecast.weather.gov/zipcity.php?inputstring=$1"
+response    = requests.get(url)
+temperature = None
+forecast    = None
 
 for line in response.text.splitlines():
     line = line.strip()
