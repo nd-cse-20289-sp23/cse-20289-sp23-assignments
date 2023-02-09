@@ -164,7 +164,7 @@ else
 fi
 
 printf "   %-40s ... " "92867 Celsius Forecast"
-diff -u <(./$SCRIPT -c -f 92867) <(weather 92867 "celsius forecast") > $WORKSPACE/test
+diff -u <(./$SCRIPT -f -c 92867) <(weather 92867 "celsius forecast") > $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
