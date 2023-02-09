@@ -56,7 +56,7 @@ else
 fi
 
 printf "   %-40s ... " "South Bend, Indiana"
-COUNT=$(./$SCRIPT -s Indiana -c "South Bend" | wc -l)
+COUNT=$(./$SCRIPT -c "South Bend" -s Indiana | wc -l)
 if [ $COUNT -ne 18 -a $COUNT -ne 12 ]; then
     error "Failure"
 else
@@ -64,7 +64,7 @@ else
 fi
 
 printf "   %-40s ... " "Indianapolis, Indiana"
-COUNT=$(./$SCRIPT -s Indiana -c Indianapolis | wc -l)
+COUNT=$(./$SCRIPT -c Indianapolis -s Indiana | wc -l)
 if [ $COUNT -ne 50 -a $COUNT -ne 48 ]; then
     error "Failure"
 else
