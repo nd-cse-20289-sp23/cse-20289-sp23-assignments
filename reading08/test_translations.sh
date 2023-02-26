@@ -22,7 +22,7 @@ mkdir $WORKSPACE
 trap "cleanup" EXIT
 trap "cleanup 1" INT TERM
 
-echo "Checking reading08 translations ..."
+echo "Testing reading08 translations ..."
 
 printf " %-40s ... " "translate1.py"
 ./translate1.py | diff -y - <(grep -Po ':1\d*0:' /etc/passwd | wc -l) > $WORKSPACE/test
