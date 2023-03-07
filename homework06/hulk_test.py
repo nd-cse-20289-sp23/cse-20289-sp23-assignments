@@ -60,15 +60,15 @@ class HulkTestCase(unittest.TestCase):
 
     def test_03_crack(self):
         self.assertEqual(
-            hulk.crack([hulk.md5sum('ab')], 2),
+            hulk.crack({hulk.md5sum('ab')}, 2),
             ['ab']
         )
         self.assertEqual(
-            hulk.crack([hulk.md5sum('abc')], 2, prefix='a'),
+            hulk.crack({hulk.md5sum('abc')}, 2, prefix='a'),
             ['abc']
         )
         self.assertEqual(
-            hulk.crack(map(hulk.md5sum, 'abc'), 1),
+            hulk.crack(set(map(hulk.md5sum, 'abc')), 1),
             ['a', 'b', 'c']
         )
         self.assertEqual(
@@ -82,11 +82,11 @@ class HulkTestCase(unittest.TestCase):
     
     def test_04_whack(self):
         self.assertEqual(
-            hulk.whack([hulk.md5sum('ab'), 2, hulk.ALPHABET, '']),
+            hulk.whack([{hulk.md5sum('ab')}, 2, hulk.ALPHABET, '']),
             ['ab']
         )
         self.assertEqual(
-            hulk.whack([hulk.md5sum('abc'), 2, hulk.ALPHABET, 'a']),
+            hulk.whack([{hulk.md5sum('abc')}, 2, hulk.ALPHABET, 'a']),
             ['abc']
         )
         self.assertEqual(
@@ -104,11 +104,11 @@ class HulkTestCase(unittest.TestCase):
 
     def test_05_smash(self):
         self.assertEqual(
-            list(hulk.smash([hulk.md5sum('ab')], 2, cores=2)),
+            list(hulk.smash({hulk.md5sum('ab')}, 2, cores=2)),
             ['ab']
         )
         self.assertEqual(
-            list(hulk.smash([hulk.md5sum('abc')], 2, prefix='a', cores=2)),
+            list(hulk.smash({hulk.md5sum('abc')}, 2, prefix='a', cores=2)),
             ['abc']
         )
         self.assertEqual(
