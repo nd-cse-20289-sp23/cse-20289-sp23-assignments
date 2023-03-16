@@ -31,6 +31,7 @@ class HulkTestCase(unittest.TestCase):
 
     def test_01_permutations(self):
         tests = (
+            (0, 'abc', []),
             (1, 'abc', ['a', 'b', 'c']),
             (2, 'abc', ['aa', 'ab', 'ac', 'ba', 'bb', 'bc', 'ca', 'cb', 'cc']),
             (3, 'abc', [

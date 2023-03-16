@@ -93,6 +93,14 @@ else
     echo "Success"
 fi
 
+printf "   %-40s ... " "Hulk LENGTH 4 (CORES: 4)"
+timeout 5 strace -e clone ./$SCRIPT -s hashes.txt -l 4 -c 4 &> $WORKSPACE/test
+if [ $? -ne 0 -o $(grep -Ec CLONE_CHILD $WORKSPACE/test) -lt 4 ]; then
+    error "Failure"
+else
+    echo "Success"
+fi
+
 printf "   %-40s ... " "Hulk LENGTH 4 (ALPHABET: kfriday)"
 timeout 5 ./$SCRIPT -s hashes.txt -l 4 -a kfriday > $WORKSPACE/test
 if [ $? -ne 0 -o $(wc -l < $WORKSPACE/test) -ne 16 ]; then
