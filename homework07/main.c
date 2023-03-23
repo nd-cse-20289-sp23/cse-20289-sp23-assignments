@@ -27,6 +27,7 @@ void usage(int status) {
     fprintf(stderr, "   -l      Convert to lowercase\n");
     fprintf(stderr, "   -u      Convert to uppercase\n");
     fprintf(stderr, "   -t      Convert to titlecase\n");
+    fprintf(stderr, "   -d      Delete letters in SOURCE\n");
     exit(status);
 }
 
